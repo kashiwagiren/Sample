@@ -1,0 +1,139 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main{
+    height: 100vh;
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+}
+
+main > section{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    scroll-snap-align: start;
+    transition: transform 0.1s ease;
+}
+
+main > section:nth-child(1){
+    background: black;
+    position: relative;
+}
+
+main > section:nth-child(1) > .intro {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center-align items */
+}
+
+main > section:nth-child(1) > .intro h1{
+    font-family: 'DotGothic16', sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 2.5rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+    cursor: default;
+    position: relative;
+    opacity: 0;
+    transform: translateY(50px);
+    color: white;
+}
+
+main > section:nth-child(1) > .intro h1.show{
+    opacity: 1;
+    transform: translateY(0);
+    animation: slideUp 2s ease-out forwards;
+}
+
+main > section:nth-child(1) > .intro h1::after{
+    content: "Hello, I'm Kieth.";
+    font-family: 'VT323', monospace;
+    font-size: 2.5rem;
+    position: absolute;
+    top: 550px;
+    left: 10px;
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    transform: translateX(-20px);
+}
+
+main > section:nth-child(1) > .intro h1:hover::after{
+    opacity: 1;
+    transform: translateX(-5px);
+}
+
+#section-1 > .downButton{
+    opacity: 0;
+    position: absolute;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: top 0.3s ease, color 0.3s ease, opacity 0.5s ease;
+    top: 900px;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#section-1 > .downButton:hover{
+    top: 880px;
+    opacity: 1;
+}
+
+#section-1 > .downButton.clicked{
+    transition: transform 0.1s ease;
+}
+
+main > section:nth-child(2){
+    width: 100%;
+    min-height: 100vh;
+    background-image: url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/549e9b77-4c90-4c7f-8d0e-772a4ba70576/deq3szx-038151fb-a2a0-45a8-823e-c7ddb1886164.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzU0OWU5Yjc3LTRjOTAtNGM3Zi04ZDBlLTc3MmE0YmE3MDU3NlwvZGVxM3N6eC0wMzgxNTFmYi1hMmEwLTQ1YTgtODIzZS1jN2RkYjE4ODYxNjQuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.OkEKqimENsh1P8aQABb7cQBgqposR8uicr6YKuNtBPA);
+    background-size: cover;
+    background-position: center;
+    padding: 10px 8%;
+}
+
+nav{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+nav ul{
+    list-style: none;
+    width: 100%;
+    text-align: right;
+    padding-right: 60px;
+}
+
+nav ul li{
+    display: inline-block;
+    margin: 10px 20px;
+}
+
+nav ul li a{
+    
+}
+
+@keyframes slideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
